@@ -1,10 +1,9 @@
 spring:
   datasource:
-    url: 'jdbc:h2:file:./target/database/h2'
-    #url: jdbc:h2:mem:test_mem
-    username: sa
-    password: null
-    driverClassName: org.h2.Driver
+    url: 'jdbc:postgresql://localhost:5432/fhir'
+    username: fhir
+    password: fhir
+    driverClassName: org.postgresql.Driver
     max-active: 15
   jpa:
     properties:
@@ -95,7 +94,7 @@ hapi:
 #    max_binary_size: 104857600
 #    max_page_size: 200
 #    retain_cached_searches_mins: 60
-#    reuse_cached_search_results_millis: 60000
+    reuse_cached_search_results_millis: 5000
     tester:
 
         home:
