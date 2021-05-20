@@ -1,3 +1,7 @@
+.project
+.classpath
+.vscode/settings.json
+
 *.orig
 target/
 *.iml

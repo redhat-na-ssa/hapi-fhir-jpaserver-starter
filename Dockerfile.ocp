@@ -1,5 +1,5 @@
-# podman build --rm -f Dockerfile.ocp -t quay.io/redhat_naps_da/hapi-fhir-jpaserver-starter-ocp:v5.3.0 .
-# podman push quay.io/redhat_naps_da/hapi-fhir-jpaserver-starter-ocp:v5.3.0
+# podman build --rm -f Dockerfile.ocp -t quay.io/redhat_naps_da/hapi-fhir-jpaserver-starter-ocp:v5.3.0-psql-bytea-1 .
+# podman push quay.io/redhat_naps_da/hapi-fhir-jpaserver-starter-ocp:v5.3.0-psql-bytea-1
 
 FROM registry.redhat.io/jboss-webserver-5/webserver54-openjdk11-tomcat9-openshift-rhel8:1.0-12
 
@@ -7,4 +7,7 @@ USER root
 
 RUN mkdir -p /data/hapi/lucenefiles && chmod 775 /data/hapi/lucenefiles
 
-COPY ./target/ROOT.war /opt/jws-5.4/tomcat/webapps/
+# Not sure why but ROOT.war isn't getting picked up
+# Thus, need to manually copy ROOT.war to base directory of project
+# COPY ./target/ROOT.war /opt/jws-5.4/tomcat/webapps/
+COPY ./ROOT.war /opt/jws-5.4/tomcat/webapps/
