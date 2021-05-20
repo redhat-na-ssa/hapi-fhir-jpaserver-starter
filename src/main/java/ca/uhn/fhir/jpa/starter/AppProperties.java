@@ -31,6 +31,7 @@ public class AppProperties {
   private Boolean allow_placeholder_references = true;
   private Boolean auto_create_placeholder_reference_targets = false;
   private Boolean enable_index_missing_fields = false;
+  private Boolean enable_index_contained_resource = false;
   private Boolean enable_repository_validating_interceptor = false;
   private Boolean enforce_referential_integrity_on_delete = true;
   private Boolean enforce_referential_integrity_on_write = true;
@@ -66,6 +67,28 @@ public class AppProperties {
 
   private Boolean lastn_enabled = false;
   private NormalizedQuantitySearchLevel normalized_quantity_search_level = NormalizedQuantitySearchLevel.NORMALIZED_QUANTITY_SEARCH_NOT_SUPPORTED;
+
+  private Integer search_coord_core_pool_size = 20;
+  private Integer search_coord_max_pool_size = 100;
+  private Integer search_coord_queue_capacity = 200;
+  private Boolean use_apache_address_strategy = false;
+  private Boolean use_apache_address_strategy_https = false;
+
+  public Boolean getUse_apache_address_strategy() {
+    return use_apache_address_strategy;
+  }
+
+  public void setUse_apache_address_strategy(Boolean use_apache_address_strategy) {
+    this.use_apache_address_strategy = use_apache_address_strategy;
+  }
+
+    public Boolean getUse_apache_address_strategy_https() {
+    return use_apache_address_strategy_https;
+  }
+
+  public void setUse_apache_address_strategy_https(Boolean use_apache_address_strategy_https) {
+    this.use_apache_address_strategy_https = use_apache_address_strategy_https;
+  }
 
   public Integer getDefer_indexing_for_codesystems_of_size() {
     return defer_indexing_for_codesystems_of_size;
@@ -254,6 +277,14 @@ public class AppProperties {
     this.enable_index_missing_fields = enable_index_missing_fields;
   }
 
+	public Boolean getEnable_index_contained_resource() {
+		return enable_index_contained_resource;
+	}
+
+	public void setEnable_index_contained_resource(Boolean enable_index_contained_resource) {
+		this.enable_index_contained_resource = enable_index_contained_resource;
+	}
+
 	public Boolean getEnable_repository_validating_interceptor() {
 		return enable_repository_validating_interceptor;
 	}
@@ -422,6 +453,23 @@ public class AppProperties {
 	this.normalized_quantity_search_level = normalized_quantity_search_level;
   }
 
+  public Integer getSearch_coord_core_pool_size() { return search_coord_core_pool_size; }
+
+  public void setSearch_coord_core_pool_size(Integer search_coord_core_pool_size) {
+    this.search_coord_core_pool_size = search_coord_core_pool_size;
+  }
+
+  public Integer getSearch_coord_max_pool_size() { return search_coord_max_pool_size; }
+
+  public void setSearch_coord_max_pool_size(Integer search_coord_max_pool_size) {
+    this.search_coord_max_pool_size = search_coord_max_pool_size;
+  }
+
+  public Integer getSearch_coord_queue_capacity() { return search_coord_queue_capacity; }
+
+  public void setSearch_coord_queue_capacity(Integer search_coord_queue_capacity) {
+  	 this.search_coord_queue_capacity = search_coord_queue_capacity;
+  }
 
 public static class Cors {
     private Boolean allow_Credentials = true;
